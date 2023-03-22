@@ -1,0 +1,148 @@
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+body{
+    
+    background-image: url('./image/fondsimple1.png');
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    
+}
+#navb{
+    display: flex;
+    margin:10px;
+    background:palevioletred;
+    border: 3px solid maroon;
+    height:80px;
+    font-size:larger;
+    margin-top: 50px;
+
+}
+
+
+.nav-list{
+    padding:1rem 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav-item{
+    margin-right: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: -75px;
+
+}
+.nav-item a{
+    color :white;
+    letter-spacing: 1.2px;
+    
+     
+}
+.nav-item:first-child{
+    margin-right: auto;
+    margin-left: 2rem;
+}    
+
+.slider{
+    width: 900px;;
+    overflow: hidden;
+    margin: 150px auto;
+    height: 900px;
+    margin-top: -5px;
+}
+.slides{
+    width:calc(900px*5);
+    animation: glisse 20s infinite;
+
+}
+.slide{
+    float:left; 
+
+}
+@keyframes glisse{
+    0%{
+        transform: translateX(0);
+    }
+    33%{
+        transform: translateX(-900px);
+    }
+    66%{
+        transform: translateX(-1800px);
+    }
+    89%{
+        transform: translateX(-3600px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+#intro{
+    display: flex;
+    margin:170px;
+    background:#C8BC25;
+    border: 3px solid maroon;
+    height:50px;
+    justify-content: center;
+    font-size:larger;
+    margin-top: 50px;
+    color: white;
+    width: 900px;
+
+
+}
+
+#bonp {
+    display: flex;
+    margin-inline: 170px;
+    background: #C8BC25;
+    height: 500px;
+    margin-top: -100px;
+}
+
+#Accueil{
+    display: flex;
+    background:#C8BC25;
+    border: 3px solid maroon;
+    height:2000px;
+    justify-content: center;
+    font-family: m;
+    font-size:larger;
+    width: 900px;
+    
+
+}
+.case {
+  width: 300px;
+  height: 300px;
+  background-color: #C8BC25;
+  border: 3px solid maroon;
+  text-align: center;
+  margin-right: 30px;
+  float: left;
+}
+
+.case h2 {
+  margin-top: 50px;
+  font-size: larger;
+  color: white;
+}
+
+.case a {
+  margin-top: 50px;
+  font-size: larger;
+  color: white;
+  text-decoration: none;
+}

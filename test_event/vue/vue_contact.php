@@ -1,6 +1,6 @@
 
 </form>
-<h3 style="text-align: center;"> Formulaire de contact </h3>
+<h3 style="text-align: center;"> Formulaire d'inscription </h3>
         <form method="post" style="width: 60%; margin: 0 auto; font-family: Arial, sans-serif;">
         <table style="border: 1px solid lightgray; border-radius: 10px; padding: 20px;">
             <tr>

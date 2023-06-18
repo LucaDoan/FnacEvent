@@ -1,5 +1,5 @@
 <?php
-	$serveur="localhost";
+	$serveur="localhost:3306";
 	$bdd="event";
 	$user="root";
 	$mdp="";

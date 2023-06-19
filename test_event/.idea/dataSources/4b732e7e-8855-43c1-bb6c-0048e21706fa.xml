@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="event@localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.43">
+    <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
+      <DefaultEngine>MyISAM</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <ServerVersion>5.7.36</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="#mysql50#leveling - Copy"/>
+    <schema id="3" parent="1" name="blog"/>
+    <schema id="4" parent="1" name="event">
+      <Current>1</Current>
+    </schema>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="leveling"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="sys"/>
+    <table id="10" parent="4" name="abonne">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="11" parent="4" name="acheter">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="12" parent="4" name="categorie">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="13" parent="4" name="event">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="14" parent="4" name="groupe">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="15" parent="4" name="guest">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="16" parent="4" name="inviter">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="17" parent="4" name="lieu">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="18" parent="4" name="participer">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="19" parent="4" name="utilisateur">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="20" parent="4" name="visiteur">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <column id="21" parent="10" name="id_user">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="22" parent="10" name="date_debut">
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="23" parent="10" name="date_fin">
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="24" parent="10" name="prixMensuel">
+      <DataType>float|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="25" parent="10" name="nom">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="26" parent="10" name="prenom">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="27" parent="10" name="email">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="28" parent="10" name="mdp">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="29" parent="10" name="role">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <column id="30" parent="10" name="id_groupe">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <foreign-key id="31" parent="10" name="Abonne_Utilisateur_FK">
+      <ColNames>id_user</ColNames>
+      <RefColNames>id_user</RefColNames>
+      <RefTableName>utilisateur</RefTableName>
+    </foreign-key>
+    <foreign-key id="32" parent="10" name="Abonne_Groupe0_FK">
+      <ColNames>id_groupe</ColNames>
+      <RefColNames>id_groupe</RefColNames>
+      <RefTableName>groupe</RefTableName>
+    </foreign-key>
+    <index id="33" parent="10" name="PRIMARY">
+      <ColNames>id_user</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="34" parent="10" name="Abonne_Groupe0_FK">
+      <ColNames>id_groupe</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="35" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="36" parent="11" name="id_user">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="37" parent="11" name="id_event">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="38" parent="11" name="dateinscription">
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="39" parent="11" name="statut">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="40" parent="11" name="billet_prix">
+      <DataType>float|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <foreign-key id="41" parent="11" name="acheter_Visiteur_FK">
+      <ColNames>id_user</ColNames>
+      <RefColNames>id_user</RefColNames>
+      <RefTableName>visiteur</RefTableName>
+    </foreign-key>
+    <foreign-key id="42" parent="11" name="acheter_Event0_FK">
+      <ColNames>id_event</ColNames>
+      <RefColNames>id_event</RefColNames>
+      <RefTableName>event</RefTableName>
+    </foreign-key>
+    <index id="43" parent="11" name="PRIMARY">
+      <ColNames>id_user
+id_event</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="44" parent="11" name="acheter_Event0_FK">
+      <ColNames>id_event</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="45" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="46" parent="12" name="idcategorie">
+      <AutoIncrement>3</AutoIncrement>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="47" parent="12" name="libelle">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="48" parent="12" name="PRIMARY">
+      <ColNames>idcategorie</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="49" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="50" parent="13" name="id_event">
+      <AutoIncrement>4</AutoIncrement>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="51" parent="13" name="designation">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="52" parent="13" name="date_debut">
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="53" parent="13" name="date_fin">
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="54" parent="13" name="capacite">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="55" parent="13" name="idcategorie">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="56" parent="13" name="idlieu">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <foreign-key id="57" parent="13" name="Event_Categorie_FK">
+      <ColNames>idcategorie</ColNames>
+      <RefColNames>idcategorie</RefColNames>
+      <RefTableName>categorie</RefTableName>
+    </foreign-key>
+    <foreign-key id="58" parent="13" name="Event_Lieu0_FK">
+      <ColNames>idlieu</ColNames>
+      <RefColNames>idlieu</RefColNames>
+      <RefTableName>lieu</RefTableName>
+    </foreign-key>
+    <index id="59" parent="13" name="PRIMARY">
+      <ColNames>id_event</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="60" parent="13" name="Event_Categorie_FK">
+      <ColNames>idcategorie</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="61" parent="13" name="Event_Lieu0_FK">
+      <ColNames>idlieu</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="62" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="63" parent="14" name="id_groupe">
+      <AutoIncrement>2</AutoIncrement>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="64" parent="14" name="nom">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="65" parent="14" name="PRIMARY">
+      <ColNames>id_groupe</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="66" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="67" parent="15" name="id_user">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="68" parent="15" name="id_guest">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="69" parent="15" name="pays">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="70" parent="15" name="langueOfficielle">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="71" parent="15" name="domaineActivite">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="72" parent="15" name="nom">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="73" parent="15" name="prenom">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="74" parent="15" name="email">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="75" parent="15" name="mdp">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <column id="76" parent="15" name="role">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <foreign-key id="77" parent="15" name="Guest_Utilisateur_FK">
+      <ColNames>id_user</ColNames>
+      <RefColNames>id_user</RefColNames>
+      <RefTableName>utilisateur</RefTableName>
+    </foreign-key>
+    <index id="78" parent="15" name="PRIMARY">
+      <ColNames>id_user
+id_guest</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="79" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="80" parent="16" name="id_event">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="81" parent="16" name="id_user">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="82" parent="16" name="id_guest">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="83" parent="16" name="dateinvitation">
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="84" parent="16" name="datedepart">
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <foreign-key id="85" parent="16" name="inviter_Event_FK">
+      <ColNames>id_event</ColNames>
+      <RefColNames>id_event</RefColNames>
+      <RefTableName>event</RefTableName>
+    </foreign-key>
+    <foreign-key id="86" parent="16" name="inviter_Guest0_FK">
+      <ColNames>id_user
+id_guest</ColNames>
+      <RefColNames>id_user
+id_guest</RefColNames>
+      <RefTableName>guest</RefTableName>
+    </foreign-key>
+    <index id="87" parent="16" name="PRIMARY">
+      <ColNames>id_event
+id_user
+id_guest</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="88" parent="16" name="inviter_Guest0_FK">
+      <ColNames>id_user
+id_guest</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="89" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="90" parent="17" name="idlieu">
+      <AutoIncrement>3</AutoIncrement>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="91" parent="17" name="libelle">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="92" parent="17" name="adresse">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <index id="93" parent="17" name="PRIMARY">
+      <ColNames>idlieu</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="94" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="95" parent="18" name="id_user">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="96" parent="18" name="id_event">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="97" parent="18" name="dateinscription">
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <foreign-key id="98" parent="18" name="participer_Abonne_FK">
+      <ColNames>id_user</ColNames>
+      <RefColNames>id_user</RefColNames>
+      <RefTableName>abonne</RefTableName>
+    </foreign-key>
+    <foreign-key id="99" parent="18" name="participer_Event0_FK">
+      <ColNames>id_event</ColNames>
+      <RefColNames>id_event</RefColNames>
+      <RefTableName>event</RefTableName>
+    </foreign-key>
+    <index id="100" parent="18" name="PRIMARY">
+      <ColNames>id_user
+id_event</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="101" parent="18" name="participer_Event0_FK">
+      <ColNames>id_event</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="102" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="103" parent="19" name="id_user">
+      <AutoIncrement>5</AutoIncrement>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="104" parent="19" name="nom">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="105" parent="19" name="prenom">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="106" parent="19" name="email">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="107" parent="19" name="mdp">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="108" parent="19" name="role">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <index id="109" parent="19" name="PRIMARY">
+      <ColNames>id_user</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="110" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="111" parent="20" name="id_user">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="112" parent="20" name="adresse">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="113" parent="20" name="datenaissance">
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="114" parent="20" name="nom">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="115" parent="20" name="prenom">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="116" parent="20" name="email">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="117" parent="20" name="mdp">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="118" parent="20" name="role">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="119" parent="20" name="Visiteur_Utilisateur_FK">
+      <ColNames>id_user</ColNames>
+      <RefColNames>id_user</RefColNames>
+      <RefTableName>utilisateur</RefTableName>
+    </foreign-key>
+    <index id="120" parent="20" name="PRIMARY">
+      <ColNames>id_user</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="121" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

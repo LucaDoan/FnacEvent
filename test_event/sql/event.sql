@@ -363,11 +363,11 @@ CALL insertGuest('Dupont', 'Jean', 'jp@gmail.com', 'password123', 'guest', 'Fran
 
 
 
-insert into Categorie values(null,"test_categorie_1");
-insert into Categorie values(null,"test_categorie_2");
+insert into Categorie values(null,"Littéraire");
+insert into Categorie values(null,"Sport");
 
-insert into Lieu values(null,"test_lieu_1","65 rue de la roche");
-insert into Lieu values(null,"test_lieu_2","55 rue du manoir");
+insert into Lieu values(null,"France","65 rue de la roche");
+insert into Lieu values(null,"France","55 rue du manoir");
 
 insert into event values (null, "Literature", "2020-10-10", "2020-10-12",250,1,1);
 insert into event values(null, 'Sport', '2020-10-10', '2020-10-12',300,2,2);

@@ -45,7 +45,6 @@ $unControleur = new controler($serveur, $bdd, $user, $mdp);
                 }
             ?>
         </a>
-        <a href="index.php?page=6">Contact</a>    
     </div>
 </nav>
 

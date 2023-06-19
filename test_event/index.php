@@ -45,7 +45,10 @@ $unControleur = new controler($serveur, $bdd, $user, $mdp);
                 }
             ?>
         </a>
+<<<<<<< HEAD
         <a href="index.php?page=6">Contact</a>    
+=======
+>>>>>>> cfb1638297c53a4a5fa6a20517de2a9d0044ed7e
     </div>
 </nav>
 

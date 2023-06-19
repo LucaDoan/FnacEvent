@@ -92,14 +92,14 @@ body{
 #intro{
     display: flex;
     margin:170px;
-    background:#C8BC25;
-    border: 3px solid maroon;
+    background:white;
+    border: 1px solid black;
     height:50px;
     justify-content: center;
     font-size:larger;
     margin-top: 50px;
-    color: white;
-    width: 900px;
+    color: black;
+    width: 1250px;
 
 
 }
@@ -112,18 +112,22 @@ body{
     margin-top: -100px;
 }
 
+
 #Accueil{
     display: flex;
-    background:#C8BC25;
-    border: 3px solid maroon;
-    height:2000px;
+    margin:170px;
+    background:white;
+    border: 1px solid black;
+    height:1450px;
     justify-content: center;
     font-family: m;
     font-size:larger;
-    width: 900px;
+    margin-top: -150px;
+    width: 1250px;
     
 
 }
+
 .case {
   width: 300px;
   height: 300px;
@@ -146,3 +150,37 @@ body{
   color: white;
   text-decoration: none;
 }
+
+#outro{
+    display: flex;
+    margin:10px;
+    background:#333;
+    border: 1px solid black;
+    height:150px;
+    font-size:larger;
+    margin-bottom: 5px;
+
+}
+
+.nav-list2{
+    padding:1rem 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav-item{
+    margin-right: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: -215px;
+
+}
+.nav-item a{
+    color :white;
+    letter-spacing: 1.2px;
+     
+}
+.nav-item:first-child{
+    margin-right: auto;
+    margin-left: 2rem;
+}    

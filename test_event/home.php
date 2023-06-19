@@ -41,21 +41,67 @@
       
     
         <div id="Accueil">
-          <div class="case">
-            <h2>Littérature</h2>
-            <a href="#">S'inscrire</a>
-          </div>
-          <div class="case">
-            <h2>Sports</h2>
-            <a href="#">S'inscrire</a>
-          </div>
-          <div class="case">
-            <h2>Gastronomie</h2>
-            <a href="#">S'inscrire</a>
-          </div>
+                <section class="main" id="products">
+                    <div class="content">
+                        <div class="card">
+                            <div class="left">
+                                <h1><a href="http://localhost/Cours/projetinfo/event/event/test_event/index.php?page=1">Evenement sur la litterature</a></h1>
+                                <p>Du 06/06/2022 au 20/06/2022</p>
+                            </div>
+                            <div class="right">
+                                <img src="images/litterature.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="left">
+                                <h1><a href="http://localhost/Cours/projetinfo/event/event/test_event/index.php?page=1">Evenement sur les jeux video</h1>
+                                <p>Du 06/06/2022 au 20/06/2022</p>
+                            </div>
+                            <div class="right">
+                                <img src="images/jeux.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="left">
+                                <h1><a href="http:/localhost/Cours/projetinfo/event/event/test_event/index.php?page=1">Evenement sur le sport</h1>
+                                <p>Du 06/06/2022 au 20/06/2022</p>
+                            </div>
+                            <div class="right">
+                                <img src="images/sport.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="left">
+                                <h1><a href="http://localhost/Cours/projetinfo/event/event/test_event/index.php?page=1">Evenement sur la Gastronomie</h1>
+                                <p>Du 06/06/2022 au 20/06/2022</p>
+                            </div>
+                            <div class="right">
+                                <img src="images/gastronomie.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-
+                
+                
+            </div>
         </div>
+
+
+        <div id="outro">
+            <div class="outro"></div>
+        </div>
+
+          <nav>
+              <ul class="nav-list2">
+              <li class="nav-item"><a href="#">Nos coordonnées</a></li>
+                      <li class="nav-item"><a href="#">doanluca.an@gmail.com</a></li>
+                      <li class="nav-item"><a href="#">Mentions legales </a></li>
+                      <li class="nav-item"><a href="#">Faire un don</a></li>
+                      
+              </ul>
+          </nav>
+
         
 
 

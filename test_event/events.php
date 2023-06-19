@@ -7,7 +7,8 @@
 <?php
 
 /**********************************************Admin************************************************ */
-if ($_SESSION['role'] == 'admin') {
+$lesEventsUsers=null;
+if ($_SESSION['role'] == 'Admin') {
     $lesCategories = $unControleur->selectAllCategories();
     $lesLieux = $unControleur->selectAllLieux();
 
@@ -41,7 +42,7 @@ if ($_SESSION['role'] == 'admin') {
 }
 /**************************************************Abonne********************************************************* */
 
-if ($_SESSION['role'] == 'abonne') {
+if ($_SESSION['role'] == 'Abonne') {
 
     $lesEvents = $unControleur->selectAllEvents();
     require_once("vue/vue_les_events.php");
@@ -52,14 +53,18 @@ if ($_SESSION['role'] == 'abonne') {
         switch ($action) {
             case 'participer':
                 require_once("vue/vue_inscription.php");
-                if (isset($_POST['Participer'])) {
-                    $unControleur->insertParticiper($_POST);
-                    /*header('Location: vue/vue_confirmation.php');
-                    exit(); */
-                }
+                
                 break;
         }
     }
+    if (isset($_POST['Participer'])) {
+        $unControleur->insertParticiper($_POST);
+        /*header('Location: vue/vue_confirmation.php');
+        exit(); */
+        echo "<script>document.location.href='index.php?page=1';</script>";
+    }
+    $lesEventsUsers=$unControleur->selectAbonnesEvents($_SESSION['id']);
+    require_once("vue/vue_les_events_abonne.php");
 }
 
 /************************************************Visiteur******************************************************/
@@ -73,14 +78,19 @@ if ($_SESSION['role'] == 'visiteur') {
         switch ($action) {
             case 'participer':
                 require_once("vue/vue_acheter_billet.php");
-                if (isset($_POST['Participer'])) {
-                    $unControleur->insertParticiper($_POST);
-                    /*header('Location: vue/vue_confirmation.php');
-                    exit(); */
-                }
+                
                 break;
         }
     }
+    if (isset($_POST['Participer'])) {
+        $unControleur->insertAcheter($_POST);
+        /*header('Location: vue/vue_confirmation.php');
+        exit(); */
+        echo "<script>document.location.href='index.php?page=1';</script>";
+    }
+    $lesEventsUsers=$unControleur->selectVisiteursEvents($_SESSION['id']);
+    require_once("vue/vue_les_events_visiteur.php");
+
 }
 /********************************************Guest********************************************************** */
 if ($_SESSION['role'] === 'guest') {
@@ -95,18 +105,23 @@ if ($_SESSION['role'] === 'guest') {
         switch ($action) {
             case 'participer':
                 require_once("vue/vue_inscription_guest.php");
-                if (isset($_POST['Participer'])) {
-                    $unControleur->insertParticiper($_POST);
-                    /*header('Location: vue/vue_confirmation.php');
-                    exit(); */
-                }
+                
                 break;
         }
     }
-    if (isset($_POST['Participer_event'])) {
+    if (isset($_POST['Inviter'])) {
         $unControleur->insertInviter($_POST);
-    }
+        /*header('Location: vue/vue_confirmation.php');
+        exit(); */
+        echo "<script>document.location.href='index.php?page=1';</script>";
+
+    } 
+
+    $lesEventsUsers=$unControleur->selectGuestsEvents($_SESSION['id']);
+    require_once("vue/vue_les_events_guest.php");
+
 }
+
 
 
 ?>

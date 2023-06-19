@@ -62,8 +62,8 @@ class Modele
     public function selectWhereCategorie($idcategorie)
     {
         $requete = "select * from categorie where idcategorie=" . $idcategorie . ";";
-        if ($this->pdo != null) {
-            $select = $this->pdo->prepare($requete);
+        if ($this->unPDO != null) {
+            $select = $this->unPDO->prepare($requete);
             $select->execute();
             //Extraction du Client
             return $select->fetch();
@@ -85,7 +85,34 @@ class Modele
             $insert->execute($donnees);
         }
     }
+    public function deleteCategorie($idcategorie)
+    {
+        if ($this->unPDO != null) {
+            $requete = "delete from categorie where idcategorie= :idcategorie;";
+            $donnees = array(
+                
+                ":idcategorie" => $idcategorie
+                
 
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
+    public function updateCategorie($tab)
+    {
+        if ($this->unPDO != null) {
+            $requete = "update categorie set libelle=:libelle where idcategorie=:idcategorie;";
+            $donnees = array(
+                ":libelle" => $tab['libelle'],
+                ":idcategorie" => $tab['idcategorie']
+                
+
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
     /*************************************************Lieu*************************************************** */
     public function selectAllLieux()
     {
@@ -99,11 +126,11 @@ class Modele
             return null;
         }
     }
-    public function selectWhereLieux($idlieu)
+    public function selectWhereLieu($idlieu)
     {
         $requete = "select * from lieu where idlieu=" . $idlieu . ";";
-        if ($this->pdo != null) {
-            $select = $this->pdo->prepare($requete);
+        if ($this->unPDO != null) {
+            $select = $this->unPDO->prepare($requete);
             $select->execute();
             //Extraction du Client
             return $select->fetch();
@@ -125,7 +152,35 @@ class Modele
             $insert->execute($donnees);
         }
     }
+    public function deleteLieu($idlieu)
+    {
+        if ($this->unPDO != null) {
+            $requete = "delete from Lieu where idlieu= :idlieu;";
+            $donnees = array(
+                
+                ":idlieu" => $idlieu
+                
 
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
+    public function updateLieu($tab)
+    {
+        if ($this->unPDO != null) {
+            $requete = "update Lieu set libelle=:libelle ,adresse=:adresse where idlieu=:idlieu;";
+            $donnees = array(
+                ":libelle" => $tab['libelle'],
+                ":adresse" => $tab['adresse'],
+                ":idlieu" => $tab['idlieu']
+                
+
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
     /****************************************************Participer****************************************************** */
 
     public function insertParticiper($tab)
@@ -141,34 +196,7 @@ class Modele
             $insert->execute($donnees);
         }
     }
-    /*************************************Guest************************************************** */
-    public function selectAllGuests()
-    {
-        if ($this->unPDO != null) {
-            $requete = "select * from guest;";
-            $select = $this->unPDO->prepare($requete);
-            $select->execute();
-            $lesGuests = $select->fetchAll();
-            return $lesGuests;
-        } else {
-            return null;
-        }
-    }
-
-    public function selectGuest($role)
-    {
-        if ($this->unPDO != null) {
-            // $requete = "select u.* ,g.id_guest from utilisateur u , guest g where u.:id_user = g.:id_user;";
-            $requete = "SELECT * FROM utilisateur WHERE role = :role";
-            $donnees = array(":role" => $role);
-            $select = $this->unPDO->prepare($requete);
-            $select->execute($donnees);
-            $unGuest = $select->fetch();
-            return $unGuest;
-        } else {
-            return null;
-        }
-    }
+    
     /*************************************Inviter************************************************** */
 
     public function insertInviter($tab)
@@ -187,34 +215,9 @@ class Modele
             $insert->execute($donnees);
         }
     }
-    /*************************************Acheter************************************************** */
-    public function selectAllVisiteurs()
-    {
-        if ($this->unPDO != null) {
-            $requete = "select * from visiteur;";
-            $select = $this->unPDO->prepare($requete);
-            $select->execute();
-            $lesVisiteurs = $select->fetchAll();
-            return $lesVisiteurs;
-        } else {
-            return null;
-        }
-    }
+    
+        /*************************************Acheter************************************************** */
 
-    public function selectVisiteur($role)
-    {
-        if ($this->unPDO != null) {
-            // $requete = "select u.* ,g.id_guest from utilisateur u , guest g where u.:id_user = g.:id_user;";
-            $requete = "SELECT * FROM utilisateur WHERE role = :role";
-            $donnees = array(":role" => $role);
-            $select = $this->unPDO->prepare($requete);
-            $select->execute($donnees);
-            $unVisiteur = $select->fetch();
-            return $unVisiteur;
-        } else {
-            return null;
-        }
-    }
     public function insertAcheter($tab)
     {
         if ($this->unPDO != null) {
@@ -222,7 +225,7 @@ class Modele
             $donnees = array(
                 ":id_user" => $tab['id_user'],
                 ":id_event" => $tab['id_event'],
-                ":dateinscription" => $tab['date_inscription'],
+                ":dateinscription" => $tab['dateinscription'],
                 ":statut" => $tab['statut'],
                 ":billet_prix" => $tab['billet_prix']
             );
@@ -267,7 +270,7 @@ class Modele
     public function selectAllAbonnes()
     {
         if ($this->unPDO != null) {
-            $requete = "select * from abonne;";
+            $requete = "select * from vueabonnes;";
             $select = $this->unPDO->prepare($requete);
             $select->execute();
             $lesAbonnes = $select->fetchAll();
@@ -276,4 +279,266 @@ class Modele
             return null;
         }
     }
+
+    public function insertAbonne($tab){
+        if ($this->unPDO != null) {
+            $requete = "call insertAbonne(:nom,:prenom,:email,:mdp,:role,:age,:date_debut,:date_fin,:prixMensuel,:id_groupe);";
+            $donnees = array(
+                ":nom" => $tab['nom'],
+                ":prenom" => $tab['prenom'],
+                ":email" => $tab['email'],
+                ":mdp" => $tab['mdp'],
+                ":age" => $tab['age'],
+                ":role" => $tab['role'],
+                ":date_debut" => $tab['date_debut'],
+                ":date_fin" => $tab['date_fin'],
+                ":prixMensuel" => $tab['prixMensuel'],
+                ":id_groupe" => $tab['id_groupe']
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
+    public function updateAbonne($tab){
+        if ($this->unPDO != null) {
+            $requete = "call updateAbonne(:id_user,:nom,:prenom,:email,:mdp,:role,:age,:date_debut,:date_fin,:prixMensuel,:id_groupe);";
+            $donnees = array(
+                ":id_user"=>$tab['id_user'],
+                ":nom" => $tab['nom'],
+                ":prenom" => $tab['prenom'],
+                ":email" => $tab['email'],
+                ":mdp" => $tab['mdp'],
+                ":age" => $tab['age'],
+                ":role" => $tab['role'],
+                ":date_debut" => $tab['date_debut'],
+                ":date_fin" => $tab['date_fin'],
+                ":prixMensuel" => $tab['prixMensuel'],
+                ":id_groupe" => $tab['id_groupe']
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
+    public function selectWhereAbonne($id_user)
+    {
+        if ($this->unPDO != null) {
+            $requete = "select * from vueabonnes where id_user='".$id_user."';";
+            $select = $this->unPDO->prepare($requete);
+            $select->execute();
+            $lesAbonnes = $select->fetch();
+            return $lesAbonnes;
+        } else {
+            return null;
+        }
+    }
+
+    public function deleteAbonne($id_user){
+        if($this->unPDO !=null){
+            $requete="call deleteAbonne(:idUser);";
+            $donnees=array(
+                ":idUser"=>$id_user
+            );
+            $update=$this->unPDO->prepare($requete);
+            $update->execute($donnees);
+        }
+    }
+
+    public function selectAbonnesEvents($idUser)
+    {
+        if ($this->unPDO != null) {
+            $requete = "select * from vueAbonnesEvents where id_user='".$idUser."';";
+            $select = $this->unPDO->prepare($requete);
+            $select->execute();
+            $lesEvents = $select->fetchAll();
+            return $lesEvents;
+        } else {
+            return null;
+        }
+    }
+
+    /*************************************Visiteur************************************************** */
+    public function selectAllVisiteurs()
+    {
+        if ($this->unPDO != null) {
+            $requete = "select * from vueVisiteurs;";
+            $select = $this->unPDO->prepare($requete);
+            $select->execute();
+            $lesAbonnes = $select->fetchAll();
+            return $lesAbonnes;
+        } else {
+            return null;
+        }
+    }
+
+    public function insertVisiteur($tab){
+        if ($this->unPDO != null) {
+            $requete = "call insertVisiteur(:nom,:prenom,:email,:mdp,:role,:adresse,:datenaissance);";
+            $donnees = array(
+                ":nom" => $tab['nom'],
+                ":prenom" => $tab['prenom'],
+                ":email" => $tab['email'],
+                ":mdp" => $tab['mdp'],
+                ":role" => $tab['role'],
+                ":adresse" => $tab['adresse'],
+                ":datenaissance" => $tab['datenaissance']
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
+    public function updateVisiteur($tab){
+        if ($this->unPDO != null) {
+            $requete = "call updateVisiteur(:id_user,:nom,:prenom,:email,:mdp,:role,:adresse,:datenaissance);";
+            $donnees = array(
+                ":id_user"=>$tab['id_user'],
+                ":nom" => $tab['nom'],
+                ":prenom" => $tab['prenom'],
+                ":email" => $tab['email'],
+                ":mdp" => $tab['mdp'],
+                ":role" => $tab['role'],
+                ":adresse" => $tab['adresse'],
+                ":datenaissance" => $tab['datenaissance']
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
+    public function selectWhereVisiteur($id_user)
+    {
+        if ($this->unPDO != null) {
+            $requete = "select * from vueVisiteurs where id_user='".$id_user."';";
+            $select = $this->unPDO->prepare($requete);
+            $select->execute();
+            $lesAbonnes = $select->fetch();
+            return $lesAbonnes;
+        } else {
+            return null;
+        }
+    }
+    public function deleteVisiteur($id_user){
+        if($this->unPDO !=null){
+            $requete="call deleteVisiteur(:idUser);";
+            $donnees=array(
+                ":idUser"=>$id_user
+            );
+            $update=$this->unPDO->prepare($requete);
+            $update->execute($donnees);
+        }
+    }
+    public function selectVisiteursEvents($idUser)
+    {
+        if ($this->unPDO != null) {
+            $requete = "select * from vueVisiteursEvents where id_user='".$idUser."';";
+            $select = $this->unPDO->prepare($requete);
+            $select->execute();
+            $lesEvents = $select->fetchAll();
+            return $lesEvents;
+        } else {
+            return null;
+        }
+    }
+    /*************************************Guest************************************************** */
+    public function selectAllGuests()
+    {
+        if ($this->unPDO != null) {
+            $requete = "select * from vueGuests;";
+            $select = $this->unPDO->prepare($requete);
+            $select->execute();
+            $lesGuests = $select->fetchAll();
+            return $lesGuests;
+        } else {
+            return null;
+        }
+    }
+
+    public function selectGuest($role)
+    {
+        if ($this->unPDO != null) {
+            // $requete = "select u.* ,g.id_guest from utilisateur u , guest g where u.:id_user = g.:id_user;";
+            $requete = "SELECT * FROM utilisateur WHERE role = :role";
+            $donnees = array(":role" => $role);
+            $select = $this->unPDO->prepare($requete);
+            $select->execute($donnees);
+            $unGuest = $select->fetch();
+            return $unGuest;
+        } else {
+            return null;
+        }
+    }
+    public function insertGuest($tab){
+        if ($this->unPDO != null) {
+            $requete = "call insertGuest(:nom,:prenom,:email,:mdp,:role,:pays,:langueOfficielle,:domaineActivite);";
+            $donnees = array(
+                ":nom" => $tab['nom'],
+                ":prenom" => $tab['prenom'],
+                ":email" => $tab['email'],
+                ":mdp" => $tab['mdp'],
+                ":role" => $tab['role'],
+                ":pays" => $tab['pays'],
+                ":langueOfficielle" => $tab['langueOfficielle'],
+                ":domaineActivite" => $tab['domaineActivite'],
+
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
+
+ 
+
+    public function updateGuest($tab){
+        if ($this->unPDO != null) {
+            $requete = "call updateGuest(:id_user,:nom,:prenom,:email,:mdp,:role,:pays,:langueOfficielle,:domaineActivite);";
+            $donnees = array(
+                ":id_user"=>$tab['id_user'],
+                ":nom" => $tab['nom'],
+                ":prenom" => $tab['prenom'],
+                ":email" => $tab['email'],
+                ":mdp" => $tab['mdp'],
+                ":role" => $tab['role'],
+                ":pays" => $tab['pays'],
+                ":langueOfficielle" => $tab['langueOfficielle'],
+                ":domaineActivite" => $tab['domaineActivite'],
+
+            );
+            $insert = $this->unPDO->prepare($requete);
+            $insert->execute($donnees);
+        }
+    }
+    public function selectWhereGuest($id_user)
+    {
+        if ($this->unPDO != null) {
+            $requete = "select * from vueGuests where id_user='".$id_user."';";
+            $select = $this->unPDO->prepare($requete);
+            $select->execute();
+            $lesAbonnes = $select->fetch();
+            return $lesAbonnes;
+        } else {
+            return null;
+        }
+    }
+    public function deleteGuest($id_user){
+        if($this->unPDO !=null){
+            $requete="call deleteGuest(:idUser);";
+            $donnees=array(
+                ":idUser"=>$id_user
+            );
+            $update=$this->unPDO->prepare($requete);
+            $update->execute($donnees);
+        }
+    }
+
+    public function selectGuestsEvents($idUser)
+    {
+        if ($this->unPDO != null) {
+            $requete = "select * from vueGuestsEvents where id_user='".$idUser."';";
+            $select = $this->unPDO->prepare($requete);
+            $select->execute();
+            $lesEvents = $select->fetchAll();
+            return $lesEvents;
+        } else {
+            return null;
+        }
+    }
+    
 }

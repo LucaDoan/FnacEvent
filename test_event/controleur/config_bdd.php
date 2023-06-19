@@ -1,6 +1,6 @@
 <?php
-	$serveur="172.20.0.180";
+	$serveur="localhost:3306";
 	$bdd="event";
 	$user="root";
-	$mdp="btssio2023";
+	$mdp="";
 ?>

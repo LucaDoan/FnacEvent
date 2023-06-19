@@ -3,19 +3,35 @@
 <h3 style="text-align: center;"> Ajout d'un lieu </h3>
         <form method="post" style="width: 60%; margin: 0 auto; font-family: Arial, sans-serif;">
         <table style="border: 1px solid lightgray; border-radius: 10px; padding: 20px;">
-            <tr>
+        <tr>
             <td style="text-align: right; padding-right: 10px;"> libelle: </td>
-            <td><input type="text" placeholder="Entrez un nom..." name="libelle" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid lightgray;" /></td>
+            <td><input type="text" placeholder="Entrez un libelle" name="libelle" value="<?= ($leLieu!=null)? $leLieu['libelle']:''?>" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid lightgray;" /></td>
             </tr>
             <tr>
             <td style="text-align: right; padding-right: 10px;">Adresse</td>
-            <td><input type="text" placeholder="Entrez une adresse" name="adresse" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid lightgray;" /></td>
+            <td><input type="text" placeholder="Entrez une adresse" name="adresse" value="<?= ($leLieu!=null)? $leLieu['adresse']:''?>" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid lightgray;" /></td>
             </tr>
             <tr>
             <td></td>
             <td><input type="reset" name="Annuler" value="Annuler" />
-                <input type="submit" name="Valider" value="Valider"/>
+                <input type="submit" 
+                <?php 
+                if ($leLieu !=null) {
+                    echo 'name = "Modifier" value="Modifier"';
+                }else{
+                    echo 'name = "Valider" value="Valider"';
+                }
+                ?>>
+                
             </td>
+        </tr>
+        <?php
+             if ($leLieu !=null) {
+                echo'<input type="hidden" name="idlieu" value="'.$leLieu['idlieu'].'">';
+            }else{
+                echo'';
+            }
+        ?>
         </tr>
     </table>
 </form>

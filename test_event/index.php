@@ -26,18 +26,26 @@ $unControleur = new controler($serveur, $bdd, $user, $mdp);
         <a href="index.php?page=0">Fnac Event</a>
     </div>
     <div class="container-right">
-    <a href="index.php?page=0">Accueil</a>
-    <a href="https://www.fnacspectacles.com/" target="_blank">Notre boutique</a>
-        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === "admin") { ?>
-            <a href="index.php?page=10" >Abonne</a>
+        <a href="index.php?page=0">Accueil</a>
+        <a href="https://www.fnacspectacles.com/" target="_blank">Notre boutique</a>
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === "Admin") { ?>
+            <a href="index.php?page=10" >Abonné</a>
             <a href="index.php?page=7" >Visiteur</a>
             <a href="index.php?page=8" >Guest</a>
-            <a href="index.php?page=9" >Categorie</a>
+            <a href="index.php?page=9" >Catégorie</a>
             <a href="index.php?page=2" >Lieux</a>
-        <?php } ?>
-        <a href="index.php?page=1">Event</a>
-        <a href="index.php?page=5">Connexion/deconnexion</a>
-        <a href="index.php?page=6">Contact</a>
+            <?php } ?>
+         <a href="index.php?page=1">Événement</a>
+        <a href="index.php?page=5">
+            <?php 
+                if (!isset($_SESSION['email'])) {
+                    echo "Connexion";
+                } else {
+                    echo "Déconnexion";
+                }
+            ?>
+        </a>
+        <a href="index.php?page=6">Contact</a>    
     </div>
 </nav>
 
@@ -106,16 +114,16 @@ $unControleur = new controler($serveur, $bdd, $user, $mdp);
                 require_once("vue/vue_contact.php");
                 break;
             case 7 :
-                require_once("vue/vue_visiteur.php");
+                require_once("visiteur.php");
                 break;
             case 8 :
-                require_once("vue/vue_guest.php");
+                require_once("guest.php");
                 break;
             case 9:
                 require_once("categorie.php");
                 break;
             case 10:
-                require_once("vue/vue_abonne.php");
+                require_once("abonne.php");
                 break;
            
         }

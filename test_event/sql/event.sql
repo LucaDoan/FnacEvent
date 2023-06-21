@@ -16,7 +16,6 @@ CREATE TABLE Utilisateur(
 	prenom  Varchar (50) NOT NULL ,
 	email   Varchar (50) NOT NULL ,
 	mdp     Varchar (50) NOT NULL ,
-	age varchar(50) NOT NULL,
 	role    Varchar (50) NOT NULL
 	,CONSTRAINT Utilisateur_PK PRIMARY KEY (id_user)
 )ENGINE=InnoDB;
@@ -357,24 +356,25 @@ insert into Utilisateur values(null, 'DOAN', 'Luca', "a@gmail.com" , "123", "Adm
 
 call insertAbonne("Doan", "Luca", "pluca@gmail.com", "123", "Abonne","18 ans", Now(), Now(), 15.0, 1);
 call insertVisiteur('Dupont', 'Jean', 'jean.dupont@example.com', 'password123', 'visiteur', '123 rue des visiteurs', '1990-01-01');
+
 CALL insertGuest('Dupont', 'Jean', 'jp@gmail.com', 'password123', 'guest', 'France', 'Français', 'Informatique');
 
 
 
 
 
-insert into Categorie values(null,"test_categorie_1");
-insert into Categorie values(null,"test_categorie_2");
+insert into Categorie values(null,"Litterature");
+insert into Categorie values(null,"Sport");
 
-insert into Lieu values(null,"test_lieu_1","65 rue de la roche");
-insert into Lieu values(null,"test_lieu_2","55 rue du manoir");
+insert into Lieu values(null,"France","65 rue de la roche");
+insert into Lieu values(null,"France","55 rue du manoir");
 
 insert into event values (null, "Literature", "2020-10-10", "2020-10-12",250,1,1);
 insert into event values(null, 'Sport', '2020-10-10', '2020-10-12',300,2,2);
 
 
 insert into participer values(2,2,"2022-11-09");
-insert into inviter values(1,4,1,"2022-12-07","2022-12-10");
+insert into inviter values(1,4,"2022-12-07","2022-12-10");
 insert into acheter values(3,1,"2022-12-13","visiteur",10.0);
 
 
@@ -387,7 +387,10 @@ CREATE VIEW vueVisiteursEvents AS(
 
 );
 
-CREATE VIEW vueGuestsEvents AS(
+CREATE VIEW vueGuestsEvents AS(	
 	select i.*, u.nom, u.prenom, e.designation from inviter i, utilisateur u, event e where u.id_user=i.id_user and e.id_event=i.id_event
 
 );
+
+call insertVisiteur('Doan', 'Luca', 'luca@gmail.com', '123', 'visiteur', '123 rue des visiteurs', '1990-01-01');
+CALL insertGuest('Dupont', 'Jean', 'jp@gmail.com', '123', 'guest', 'France', 'Français', 'Informatique');

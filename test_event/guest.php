@@ -26,11 +26,13 @@
         //Rentrer donner
         if(isset($_POST['Valider'])){
             $unControleur->insertGuest($_POST);
-            var_dump($_POST);
+            //var_dump($_POST);
         }
         if(isset($_POST['Modifier'])){
             $unControleur->updateGuest($_POST);
-            header("Location: index.php?page=10");
+            //header("Location: index.php?page=10");
+            echo "<script>document.location.href='index.php?page=8';</script>";
+
         }
    
         $lesGuests=$unControleur->selectAllGuests();

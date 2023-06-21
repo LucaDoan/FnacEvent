@@ -10,28 +10,26 @@ class controler
         $this->unModele = new Modele($serveur, $bdd, $user, $mdp);
     }
 
-    /********************************************** */
+    /********************Event************************** */
 
     public function selectAllEvents()
     {
         $lesEvents = $this->unModele->selectAllEvents();
         return $lesEvents;
     }
-    /********************************************** */
 
     public function insertEvent($tab)
     {
         $this->unModele->insertEvent($tab);
     }
 
-    /********************************************** */
+    /*********************Categorie************************* */
 
     public function selectAllCategories()
     {
         $lesCategories = $this->unModele->selectAllCategories();
         return $lesCategories;
     }
-    /********************************************** */
 
     public function selectWhereCategorie($idcategorie)
     {
@@ -39,8 +37,6 @@ class controler
 
     }
     
-
-
     public function insertCategorie($tab)
     {
         $this->unModele->insertCategorie($tab);
@@ -53,20 +49,19 @@ class controler
     {
         $this->unModele->updateCategorie($tab);
     }
-    /********************************************** */
+
+    /**********************Lieu************************ */
 
     public function selectAllLieux()
     {
         $lesLieux = $this->unModele->selectAllLieux();
         return $lesLieux;
     }
-    /********************************************** */
 
     public function selectWhereLieu($idlieu)
     {
         return $this->unModele->selectWhereLieu($idlieu);
     }
-    /************************************************ */
     public function insertLieu($tab)
     {
         $this->unModele->insertLieu($tab);
@@ -79,25 +74,25 @@ class controler
     {
         $this->unModele->updateLieu($tab);
     }
-    /********************************************** */
+    /*********************Participer************************* */
 
     public function insertParticiper($tab)
     {
         $this->unModele->insertParticiper($tab);
     }
-    /********************************************** */
+    /*********************Inviter************************* */
 
     public function insertInviter($tab)
     {
         $this->unModele->insertInviter($tab);
     }
-    /********************************************** */
+    /*********************Acheter************************* */
 
     public function insertAcheter($tab)
     {
         $this->unModele->insertAcheter($tab);
     }
-    /********************************************** */
+    /**********************Connexion************************ */
 
     public function verifConnexion($email, $mdp)
     {
@@ -105,14 +100,15 @@ class controler
         return $unUser;
 
     }
-    /********************************************** */
+    /*********************Users************************* */
 
     public function selectAllUsers()
     {
         $lesUsers = $this->unModele->selectAllUsers();
         return $lesUsers;
     }
-    /********************************************** */
+    /**********************Guests************************ */
+
     public function selectAllGuests()
     {
         $lesGuests = $this->unModele->selectAllGuests();
@@ -142,7 +138,7 @@ class controler
         $this->unModele->deleteGuest($id_user);
         
      }
-    /********************************************** */
+    /*******************Visiteur*************************** */
 
     
 
@@ -174,7 +170,8 @@ class controler
         $this->unModele->deleteVisiteur($id_user);
         
      }
-     /********************************************** */
+     /********************Abonne************************** */
+     
      public function selectAllAbonnes()
      {
          $lesAbonnes = $this->unModele->selectAllAbonnes();

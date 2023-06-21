@@ -43,7 +43,7 @@
         ?>
     </table>
     <footer>
-		Ceci est le footer de ma page.
+    doanluca.an@gmail.com
 	</footer>
 </body>
 </html>
